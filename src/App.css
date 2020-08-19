@@ -1,4 +1,38 @@
-.App {
-  text-align: center;
+.appWrapper {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-template-areas:
+                    "h h"
+                    "n c";
+    grid-gap: 10px;
+    width: 1200px;
+    margin: 0 auto;
 }
+
+.nav {
+    grid-area: n;
+    background: coral;
+}
+
+.header {
+    grid-area: h;
+    background: black;
+}
+
+.header img {
+    width: 106px;
+
+}
+
+.content {
+    grid-area: c;
+    background: burlywood;
+}
+
+.content img {
+    margin: 10px;
+    width: 990px;
+}
+
 
