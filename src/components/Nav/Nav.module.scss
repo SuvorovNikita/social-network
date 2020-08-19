@@ -1,0 +1,13 @@
+.nav {
+  grid-area: n;
+  background: coral;
+  display: flex;
+  flex-direction: column;
+
+  .item {
+    color: white;
+  }
+  .active {
+    color: darkolivegreen;
+  }
+}
