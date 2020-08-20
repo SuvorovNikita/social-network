@@ -1,14 +1,16 @@
 .nav {
   grid-area: n;
-  background: coral;
+  background: #2b2c32;
   display: flex;
   flex-direction: column;
   padding: 10px;
 
   .item {
-    color: white;
+    color: #acacac;
+    font-size: 14px;
+    line-height: 21px;
   }
   .active {
-    color: darkolivegreen;
+    color:#fff;
   }
 }

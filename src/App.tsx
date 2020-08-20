@@ -1,11 +1,12 @@
 import React from 'react';
 
-import Header from './components/Header/Header';
 import Nav from "./components/Nav/Nav";
-import MyPosts from "./components/Profile/MyPosts/MyPosts";
+
 
 import classes from './App.module.scss';
 import Profile from "./components/Profile/Profile";
+import Header from "./components/Header/Header";
+
 
 const App = () => {
     return (
