@@ -25,7 +25,11 @@ body {
 
 .appWrapperContent {
   grid-area: c;
+  padding: 10px;
   background: #2b2c32;
+  img {
+    width: 1000px;
+  }
 }
 
 
