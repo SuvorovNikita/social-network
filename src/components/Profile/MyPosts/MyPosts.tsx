@@ -4,13 +4,13 @@ import Post from "./Post/Post";
 import classes from "./MyPosts.module.scss";
 
 
-
 const MyPosts = () => {
 
-    let postData = [
+    let posts = [
         {id: 1, message: 'Obito', likeCount: 10},
         {id: 2, message: 'Pain', likeCount: 20}
     ];
+    let postsElements = posts.map(p => <Post message={p.message} likeCount={p.likeCount}/>);
 
     return <div>
         <h3 className={classes.newPost}>New posts</h3>
@@ -21,8 +21,7 @@ const MyPosts = () => {
             <button>Add Post</button>
         </div>
         <div className={classes.posts}>
-            <Post message={postData[0].message} likeCount={postData[0].likeCount}/>
-            <Post message={postData[1].message} likeCount={postData[1].likeCount}/>
+            {postsElements}
         </div>
     </div>
 }
