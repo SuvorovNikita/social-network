@@ -6,6 +6,7 @@ import Nav from "./components/Nav/Nav";
 import classes from './App.module.scss';
 import Profile from "./components/Profile/Profile";
 import Header from "./components/Header/Header";
+import Dialogs from './components/Dialogs/Dialogs';
 
 
 const App = () => {
@@ -13,7 +14,10 @@ const App = () => {
         <div className={classes.appWrapper}>
             <Header/>
             <Nav/>
-            <Profile/>
+            <div className={classes.appWrapperContent}>
+                <Dialogs/>
+            </div>
+            {/*<Profile/>*/}
         </div>
     );
 }

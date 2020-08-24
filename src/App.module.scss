@@ -8,6 +8,7 @@
   grid-gap: 10px;
 
 }
+
 body {
   margin-left: auto;
   margin-right: auto;
@@ -18,9 +19,14 @@ body {
   background: #121215;
   padding: 0 15px;
   box-shadow: 0 0 5px #000;
+  color: #acacac;
 
 }
 
+.appWrapperContent {
+  grid-area: c;
+  background: #2b2c32;
+}
 
 
 
