@@ -16,7 +16,7 @@ const MyPosts = (props: PropsType) => {
     return <div>
         <h3 className={classes.newPost}>New posts</h3>
         <div className={classes.wrapperText}>
-            <textarea>Что то написано</textarea>
+            <textarea>Введите сообщение</textarea>
         </div>
         <div className={classes.wrapperBtn}>
             <button>Add Post</button>
