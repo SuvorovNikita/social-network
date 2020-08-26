@@ -9,27 +9,26 @@ import Music from "./components/Music/Music";
 import Settings from './components/Settings/Settings';
 
 import {BrowserRouter, Route} from 'react-router-dom';
-import {DialogsType, MessagesType, PostsType} from "./index";
 
 import classes from './App.module.scss';
-
+import {StateType} from "./Redux/state";
 
 type PropsType = {
-    posts: Array<PostsType>
-    dialogs: Array<DialogsType>
-    messages: Array<MessagesType>
+    state: StateType
 }
 
+
 const App = (props: PropsType) => {
+
     return (
         <BrowserRouter>
             <div className={classes.appWrapper}>
                 <Header/>
                 <Nav/>
                 <div className={classes.appWrapperContent}>
-                    <Route path="/dialogs" render={() => <Dialogs dialogs={props.dialogs}
-                                                                  messages={props.messages}/>}/>
-                    <Route path="/profile" render={() => <Profile posts={props.posts}/>}/>
+                    <Route path="/dialogs" render={() => <Dialogs dialogs={props.state.dialogsPage.dialogs}
+                                                                  messages={props.state.dialogsPage.messages}/>}/>
+                    <Route path="/profile" render={() => <Profile posts={props.state.profilePage.posts}/>}/>
                     <Route path="/news" component={News}/>
                     <Route path="/music" component={Music}/>
                     <Route path="/settings" component={Settings}/>

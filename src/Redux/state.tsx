@@ -14,8 +14,21 @@ export type MessagesType = {
     message: string
 }
 
+export type ProfilePageType = {
+    posts: Array<PostsType>
+}
 
-let state = {
+export type DialogsPageType = {
+    dialogs: Array<DialogsType>
+    messages: Array<MessagesType>
+}
+
+export type StateType = {
+    profilePage: ProfilePageType
+    dialogsPage: DialogsPageType
+}
+
+let state: StateType = {
 
     profilePage: {
         posts: [
