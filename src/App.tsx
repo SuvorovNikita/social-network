@@ -9,17 +9,15 @@ import Music from "./components/Music/Music";
 import Settings from './components/Settings/Settings';
 
 import {BrowserRouter, Route} from 'react-router-dom';
+import {StateType} from "./Redux/state";
 
 import classes from './App.module.scss';
-import {StateType} from "./Redux/state";
 
 type PropsType = {
     state: StateType
 }
 
-
 const App = (props: PropsType) => {
-
     return (
         <BrowserRouter>
             <div className={classes.appWrapper}>
