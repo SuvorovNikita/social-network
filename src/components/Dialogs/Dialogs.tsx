@@ -1,9 +1,11 @@
 import React from "react";
 
-import classes from "./Dialogs.module.scss";
+
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
 import {DialogsType, MessagesType} from "../../Redux/state";
+
+import classes from "./Dialogs.module.scss";
 
 
 type PropsType = {
