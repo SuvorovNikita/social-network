@@ -20,6 +20,8 @@ const MyPosts = (props: PropsType) => {
     let addPost = () => {
         let text = newPostElement.current && newPostElement.current.value;
         props.addPost(text)
+        // @ts-ignore
+        newPostElement.current.value = '';
     }
 
     return <div>

@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../Render";
+
 export type PostsType = {
     id: number
     message: string
@@ -63,7 +65,11 @@ export let addPost = (postMessage:any) => {
     };
 
     state.profilePage.posts.push(newPost)
+    rerenderEntireTree(state);
+
 }
+
+
 
 export default state;
 
