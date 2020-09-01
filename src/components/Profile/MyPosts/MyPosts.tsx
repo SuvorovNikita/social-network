@@ -9,17 +9,20 @@ type PropsType = {
     posts: Array<PostsType>
     addPost: () => void
     updateNewPostText: (newText: any) => void
-    newPostText: any
+    newPostText: string
 }
 
 
 const MyPosts = (props: PropsType) => {
 
-    let postsElements = props.posts.map(p => <Post key={p.id} message={p.message} likeCount={p.likeCount}/>);
+    let postsElements = props.posts.map(p => <Post key={p.id}
+                                                   message={p.message}
+                                                   likeCount={p.likeCount}/>);
 
     let newPostElement = React.createRef<HTMLTextAreaElement>();
 
     let onPostChange = () => {
+
         let text = newPostElement.current && newPostElement.current.value;
         props.updateNewPostText(text);
     }

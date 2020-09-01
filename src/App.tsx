@@ -16,7 +16,7 @@ import classes from './App.module.scss';
 type PropsType = {
     state: StateType
     addPost: () => void
-    updateNewPostText: (newText: any) => void
+    updateNewPostText: (newText: string) => void
 }
 
 const App = (props: PropsType) => {
