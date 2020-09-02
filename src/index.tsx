@@ -1,11 +1,12 @@
 import React from 'react';
 import './index.scss';
 import {rerenderEntireTree} from "./Render";
-import state from "./Redux/state";
+
+import store from "./Redux/state";
 
 
 
-rerenderEntireTree(state);
+rerenderEntireTree(store.getState());
 
 
 

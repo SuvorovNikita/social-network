@@ -33,51 +33,57 @@ export type StateType = {
     dialogsPage: DialogsPageType
 }
 
-let state: StateType = {
+let store: any = {
 
-    profilePage: {
-        posts: [
-            {id: 1, message: 'Obito', likeCount: 10},
-            {id: 2, message: 'Pain', likeCount: 20}
-        ],
-        newPostText: "Value1"
+    _state: {
+
+        profilePage: {
+            posts: [
+                {id: 1, message: 'Obito', likeCount: 10},
+                {id: 2, message: 'Pain', likeCount: 20}
+            ],
+            newPostText: ""
+        },
+
+        dialogsPage: {
+            dialogs: [
+                {id: 1, name: 'Tobi'},
+                {id: 2, name: 'Pain'},
+                {id: 3, name: 'Conan'},
+                {id: 4, name: 'Itachi'},
+                {id: 5, name: 'Hidan'}
+            ],
+            messages: [
+                {id: 1, message: 'Привет'},
+                {id: 2, message: 'Хай'},
+                {id: 3, message: 'Пока'},
+            ]
+        },
+
     },
+    getState() {
+        return this._state;
+    },
+    rerenderEntireTree() {
 
-    dialogsPage: {
-        dialogs: [
-            {id: 1, name: 'Tobi'},
-            {id: 2, name: 'Pain'},
-            {id: 3, name: 'Conan'},
-            {id: 4, name: 'Itachi'},
-            {id: 5, name: 'Hidan'}
-        ],
-        messages: [
-            {id: 1, message: 'Привет'},
-            {id: 2, message: 'Хай'},
-            {id: 3, message: 'Пока'},
-        ]
-    }
+    },
+    addPost() {
 
+        let newPost = {
+            id: 5,
+            message: this._state.profilePage.newPostText,
+            likeCount: 12
+        };
+
+        this._state.profilePage.posts.push(newPost)
+        this._state.profilePage.newPostText = ''
+        rerenderEntireTree(this._state);
+    },
+    updateNewPostText(newText: string) {
+        this._state.profilePage.newPostText = newText;
+        rerenderEntireTree(this._state);
+    },
 }
 
-export let addPost = () => {
-
-    let newPost = {
-        id: 5,
-        message: state.profilePage.newPostText,
-        likeCount: 12
-    };
-
-    state.profilePage.posts.push(newPost)
-    state.profilePage.newPostText = ''
-    rerenderEntireTree(state);
-}
-
-export let updateNewPostText = (newText: string) => {
-    state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
-}
-
-
-export default state;
+export default store;
 
