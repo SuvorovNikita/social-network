@@ -18,9 +18,8 @@ const Profile = (props: PropsType) => {
     return <div className={classes.bg}>
         <ProfileInfo/>
         <MyPosts posts={props.posts}
-                 updateNewPostText={props.updateNewPostText}
                  newPostText={props.newPostText}
-                 addPost={props.addPost}/>
+                 dispatch={props.dispatch}/>
     </div>
 }
 
