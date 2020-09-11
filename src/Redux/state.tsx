@@ -32,6 +32,7 @@ export type StateType = {
     dialogsPage: DialogsPageType
 }
 
+
 let store: any = {
 
     _state: {
@@ -68,7 +69,7 @@ let store: any = {
     },
 
 
-    dispatch(action) {
+    dispatch(action:any) {
         if (action.type === 'ADD-POST') {
 
             let newPost = {

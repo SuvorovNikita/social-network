@@ -9,9 +9,10 @@ import {PostsType} from "../../Redux/state";
 
 type PropsType = {
     posts: Array<PostsType>
-    addPost: () => void
-    updateNewPostText: (newText: string) => void
+    // addPost: () => void
+    // updateNewPostText: (newText: string) => void
     newPostText: string
+    dispatch:(action:any)=>void
 }
 
 const Profile = (props: PropsType) => {
