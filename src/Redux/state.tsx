@@ -40,6 +40,9 @@ let store: any = {
         profilePage: {
             posts: [
                 {id: 1, message: 'Obito', likeCount: 10},
+                {id: 2, message: 'Pain', likeCount: 20},
+                {id: 2, message: 'Pain', likeCount: 20},
+                {id: 2, message: 'Pain', likeCount: 20},
                 {id: 2, message: 'Pain', likeCount: 20}
             ],
             newPostText: ""
