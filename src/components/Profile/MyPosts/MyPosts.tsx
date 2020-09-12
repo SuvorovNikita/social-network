@@ -2,15 +2,16 @@ import React from "react";
 import Post from "./Post/Post";
 
 import classes from "./MyPosts.module.scss";
-import {PostsType} from "../../../Redux/state";
+import {addPostActionCreator, PostsType, updateNewPostTextActionCreator} from "../../../Redux/state";
 
 
 type PropsType = {
     posts: Array<PostsType>
     // addPost: () => void
     // updateNewPostText: (newText: any) => void
-    newPostText: string
-    dispatch:(action:any)=>void
+    newPostText: any
+    dispatch: (action: any) => void
+    updateNewPostTextActionCreator: (text: any) => void
 }
 
 
@@ -24,12 +25,12 @@ const MyPosts = (props: PropsType) => {
 
     let onPostChange = () => {
         let text = newPostElement.current && newPostElement.current.value;
-        let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+        let action = updateNewPostTextActionCreator(text);
         props.dispatch(action);
     }
 
     let addPost = () => {
-        props.dispatch({type: 'ADD-POST'})
+        props.dispatch(addPostActionCreator())
     }
 
     return <div>
