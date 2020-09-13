@@ -19,7 +19,7 @@ type PropsType = {
     // updateNewPostText: (newText: string) => void
     dispatch:(action:any)=>void
     // updateNewPostTextActionCreator : (text:any)=>void
-    store:any
+    store: any
 }
 
 const App = (props: PropsType) => {
