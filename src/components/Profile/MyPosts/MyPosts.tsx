@@ -11,7 +11,7 @@ type PropsType = {
     // updateNewPostText: (newText: any) => void
     newPostText: any
     dispatch: (action: any) => void
-    updateNewPostTextActionCreator: (text: any) => void
+    // updateNewPostTextActionCreator: (text: any) => void
 }
 
 

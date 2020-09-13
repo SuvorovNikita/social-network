@@ -9,7 +9,7 @@ import Music from "./components/Music/Music";
 import Settings from './components/Settings/Settings';
 
 import {Route} from 'react-router-dom';
-import {StateType, updateNewPostTextActionCreator} from "./Redux/state";
+import store, {StateType, updateNewPostTextActionCreator} from "./Redux/state";
 
 import classes from './App.module.scss';
 
@@ -18,7 +18,8 @@ type PropsType = {
     // addPost: () => void
     // updateNewPostText: (newText: string) => void
     dispatch:(action:any)=>void
-    updateNewPostTextActionCreator : (text:any)=>void
+    // updateNewPostTextActionCreator : (text:any)=>void
+    store:any
 }
 
 const App = (props: PropsType) => {
@@ -27,12 +28,11 @@ const App = (props: PropsType) => {
             <Header/>
             <Nav/>
             <div className={classes.appWrapperContent}>
-                <Route path="/dialogs" render={() => <Dialogs dialogs={props.state.dialogsPage.dialogs}
+                <Route path="/dialogs" render={() => <Dialogs store={props.store}
                                                               messages={props.state.dialogsPage.messages}/>}/>
                 <Route path="/profile" render={() => <Profile
                                                               newPostText={props.state.profilePage.newPostText}
                                                               posts={props.state.profilePage.posts}
-                                                              updateNewPostTextActionCreator={updateNewPostTextActionCreator}
                                                               dispatch={props.dispatch}/>}
                 />
                 <Route path="/news" component={News}/>

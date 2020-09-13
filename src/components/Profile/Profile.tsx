@@ -13,7 +13,7 @@ type PropsType = {
     // updateNewPostText: (newText: string) => void
     newPostText: string
     dispatch:(action:any)=>void
-    updateNewPostTextActionCreator : (text:any)=>void
+    // updateNewPostTextActionCreator : (text:any)=>void
 
 }
 
@@ -21,7 +21,6 @@ const Profile = (props: PropsType) => {
     return <div className={classes.bg}>
         <ProfileInfo/>
         <MyPosts posts={props.posts}
-                 updateNewPostTextActionCreator={updateNewPostTextActionCreator}
                  newPostText={props.newPostText}
                  dispatch={props.dispatch}/>
     </div>

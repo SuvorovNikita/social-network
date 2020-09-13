@@ -2,6 +2,8 @@ import {rerenderEntireTree} from "../Render";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 
 
 export type PostsType = {
@@ -38,15 +40,8 @@ export type StateType = {
 
 let store: any = {
     _state: {
-
         profilePage: {
-            posts: [
-                {id: 1, message: 'Obito', likeCount: 10},
-                {id: 2, message: 'Pain', likeCount: 20},
-                {id: 2, message: 'Pain', likeCount: 20},
-                {id: 2, message: 'Pain', likeCount: 20},
-                {id: 2, message: 'Pain', likeCount: 20}
-            ],
+            posts: [],
             newPostText: ""
         },
 
@@ -62,7 +57,8 @@ let store: any = {
                 {id: 1, message: 'Привет'},
                 {id: 2, message: 'Хай'},
                 {id: 3, message: 'Пока'},
-            ]
+            ],
+            newMessageBody: ""
         },
 
     },
@@ -88,12 +84,23 @@ let store: any = {
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText;
             rerenderEntireTree(this._state);
+        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+            this._state.dialogsPage.newMessageBody = action.body;
+            rerenderEntireTree(this._state);
+        } else if (action.type === SEND_MESSAGE) {
+            let body = this._state.dialogsPage.newMessageBody;
+            this._state.dialogsPage.newMessageBody = '';
+            this._state.dialogsPage.messages.push({id: 5, message: body},)
+            rerenderEntireTree(this._state);
         }
     }
 }
 
-export const addPostActionCreator = () => ({ type: ADD_POST})
-export const updateNewPostTextActionCreator = (text: any) => ({  type: UPDATE_NEW_POST_TEXT, newText: text})
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const updateNewPostTextActionCreator = (text: any) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
+export const sendMessageCreator = () => ({type: SEND_MESSAGE})
+export const updateNewMessageBodyCreator = (body: any) => ({type: UPDATE_NEW_MESSAGE_BODY, body: body})
 
 export default store;
 
