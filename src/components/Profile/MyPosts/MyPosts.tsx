@@ -2,7 +2,8 @@ import React from "react";
 import Post from "./Post/Post";
 
 import classes from "./MyPosts.module.scss";
-import {addPostActionCreator, PostsType, updateNewPostTextActionCreator} from "../../../Redux/state";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/profile-reducer";
+import {PostsType} from "../../../Redux/state";
 
 
 type PropsType = {

@@ -5,11 +5,13 @@ import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
 import {
     DialogsPageType,
-    DialogsType,
     MessagesType,
+} from "../../Redux/state";
+
+import {
     sendMessageCreator,
     updateNewMessageBodyCreator
-} from "../../Redux/state";
+} from "../../Redux/dialogs-reducer";
 
 import classes from "./Dialogs.module.scss";
 

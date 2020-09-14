@@ -9,7 +9,7 @@ import Music from "./components/Music/Music";
 import Settings from './components/Settings/Settings';
 
 import {Route} from 'react-router-dom';
-import store, {StateType, updateNewPostTextActionCreator} from "./Redux/state";
+import store, {StateType} from "./Redux/state";
 
 import classes from './App.module.scss';
 
