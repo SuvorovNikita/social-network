@@ -19,7 +19,8 @@ type PropsType = {
     // updateNewPostText: (newText: string) => void
     dispatch:(action:any)=>void
     // updateNewPostTextActionCreator : (text:any)=>void
-    store: any
+    store:any
+
 }
 
 const App = (props: PropsType) => {
@@ -28,8 +29,8 @@ const App = (props: PropsType) => {
             <Header/>
             <Nav/>
             <div className={classes.appWrapperContent}>
-                <Route path="/dialogs" render={() => <Dialogs store={props.store}
-                                                              messages={props.state.dialogsPage.messages}/>}/>
+                <Route path="/dialogs" render={() => <Dialogs  dispatch={props.dispatch} store={props.store}
+                                                              messages={props.state.dialogsPage.messages} dialogsPage={props.state.dialogsPage}/>}/>
                 <Route path="/profile" render={() => <Profile
                                                               newPostText={props.state.profilePage.newPostText}
                                                               posts={props.state.profilePage.posts}

@@ -1,5 +1,3 @@
-import {rerenderEntireTree} from "../Render";
-
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
@@ -30,6 +28,7 @@ export type ProfilePageType = {
 export type DialogsPageType = {
     dialogs: Array<DialogsType>
     messages: Array<MessagesType>
+    newMessageBody: string
 }
 
 export type StateType = {
@@ -65,14 +64,14 @@ let store: any = {
     getState() {
         return this._state;
     },
-
-    rerenderEntireTree() {
-
+    subscribe(observer: any) {
+        this.rerenderEntireTree = observer;
     },
-
+    _callSubscriber() {
+        console.log('state')
+    },
     dispatch(action: any) {
         if (action.type === ADD_POST) {
-
             let newPost = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
@@ -80,18 +79,22 @@ let store: any = {
             };
             this._state.profilePage.posts.push(newPost)
             this._state.profilePage.newPostText = ''
-            rerenderEntireTree(this._state);
+            this._callSubscriber();
+            this.rerenderEntireTree()
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText;
-            rerenderEntireTree(this._state);
+            this._callSubscriber();
+            this.rerenderEntireTree()
         } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
             this._state.dialogsPage.newMessageBody = action.body;
-            rerenderEntireTree(this._state);
+            this._callSubscriber();
+            this.rerenderEntireTree()
         } else if (action.type === SEND_MESSAGE) {
             let body = this._state.dialogsPage.newMessageBody;
             this._state.dialogsPage.newMessageBody = '';
             this._state.dialogsPage.messages.push({id: 5, message: body},)
-            rerenderEntireTree(this._state);
+            this._callSubscriber();
+            this.rerenderEntireTree()
         }
     }
 }
