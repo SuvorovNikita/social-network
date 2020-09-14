@@ -43,7 +43,6 @@ let store: any = {
             posts: [],
             newPostText: ""
         },
-
         dialogsPage: {
             dialogs: [
                 {id: 1, name: 'Tobi'},
@@ -59,7 +58,6 @@ let store: any = {
             ],
             newMessageBody: ""
         },
-
     },
     getState() {
         return this._state;
@@ -80,21 +78,21 @@ let store: any = {
             this._state.profilePage.posts.push(newPost)
             this._state.profilePage.newPostText = ''
             this._callSubscriber();
-            this.rerenderEntireTree()
+            this.rerenderEntireTree(this._state)
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber();
-            this.rerenderEntireTree()
+            this.rerenderEntireTree(this._state)
         } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
             this._state.dialogsPage.newMessageBody = action.body;
             this._callSubscriber();
-            this.rerenderEntireTree()
+            this.rerenderEntireTree(this._state)
         } else if (action.type === SEND_MESSAGE) {
             let body = this._state.dialogsPage.newMessageBody;
             this._state.dialogsPage.newMessageBody = '';
             this._state.dialogsPage.messages.push({id: 5, message: body},)
             this._callSubscriber();
-            this.rerenderEntireTree()
+            this.rerenderEntireTree(this._state)
         }
     }
 }
